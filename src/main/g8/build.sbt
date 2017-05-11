@@ -1,11 +1,12 @@
-import Dependencies._
+name := "akka-quickstart-java"
 
-lazy val root = (project in file(".")).
-  settings(
-    inThisBuild(List(
-      organization := "com.example",
-      scalaVersion := "2.12.0"
-    )),
-    name := "akka-java-seed",
-    libraryDependencies ++= Seq(akkaActor, akkaTestkit % Test, junit % Test, junitInterface % Test)
-  )
+version := "1.0"
+
+scalaVersion := "2.12.2"
+
+lazy val akkaVersion = "2.5.1"
+
+libraryDependencies ++= Seq(
+  "com.typesafe.akka" %% "akka-actor" % akkaVersion,
+  "com.typesafe.akka" %% "akka-testkit" % akkaVersion,
+  "junit" % "junit" % "4.12")
