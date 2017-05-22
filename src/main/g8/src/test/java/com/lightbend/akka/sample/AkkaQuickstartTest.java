@@ -28,13 +28,11 @@ public class AkkaQuickstartTest {
 
     @Test
     public void testGreeterActorSendingOfGreeting() {
-        new TestKit(system) {{
-            final TestKit testProbe = new TestKit(system);
-            final ActorRef helloGreeter = system.actorOf(Greeter.props("Hello", testProbe.getRef()));
-            helloGreeter.tell(new WhoToGreet("Akka"), ActorRef.noSender());
-            helloGreeter.tell(new Greet(), ActorRef.noSender());
-            Greeting greeting = testProbe.expectMsgClass(Greeting.class);
-            assertEquals("Hello, Akka", greeting.message);
-        }};
+        final TestKit testProbe = new TestKit(system);
+        final ActorRef helloGreeter = system.actorOf(Greeter.props("Hello", testProbe.getRef()));
+        helloGreeter.tell(new WhoToGreet("Akka"), ActorRef.noSender());
+        helloGreeter.tell(new Greet(), ActorRef.noSender());
+        Greeting greeting = testProbe.expectMsgClass(Greeting.class);
+        assertEquals("Hello, Akka", greeting.message);
     }
 }
