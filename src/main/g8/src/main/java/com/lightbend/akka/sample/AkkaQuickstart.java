@@ -11,10 +11,14 @@ public class AkkaQuickstart {
     final ActorSystem system = ActorSystem.create("helloakka");
     try {
       //#create-actors
-      final ActorRef printerActor = system.actorOf(Printer.props(), "printerActor");
-      final ActorRef howdyGreeter = system.actorOf(Greeter.props("Howdy", printerActor), "howdyGreeter");
-      final ActorRef helloGreeter = system.actorOf(Greeter.props("Hello", printerActor), "helloGreeter");
-      final ActorRef goodDayGreeter = system.actorOf(Greeter.props("Good day", printerActor), "goodDayGreeter");
+      final ActorRef printerActor = 
+        system.actorOf(Printer.props(), "printerActor");
+      final ActorRef howdyGreeter = 
+        system.actorOf(Greeter.props("Howdy", printerActor), "howdyGreeter");
+      final ActorRef helloGreeter = 
+        system.actorOf(Greeter.props("Hello", printerActor), "helloGreeter");
+      final ActorRef goodDayGreeter = 
+        system.actorOf(Greeter.props("Good day", printerActor), "goodDayGreeter");
       //#create-actors
 
       //#main-send-messages
