@@ -20,7 +20,7 @@ Just as you did earlier, run the application from a console:
 Maven
 :   
 ```
-$ mvn exec:exec
+$ mvn compile exec:exec
 ```
 
 Gradle
@@ -95,4 +95,4 @@ Try running the code a couple of more times and make sure to notice the order of
 
 If you use IntelliJ, try integrating the sample project with @ref:[IntelliJ IDEA](intellij-idea.md).
 
-To continue learning more about Akka and Actor Systems, look at the [Getting Started Guide](http://doc.akka.io/docs/akka/2.5/java.html) next. Happy hakking!
+To continue learning more about Akka and Actor Systems, look at the [Getting Started Guide](http://doc.akka.io/docs/akka/2.5/java/guide/introduction.html) next. Happy hakking!
