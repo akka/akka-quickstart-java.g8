@@ -5,6 +5,8 @@ This guide introduces Akka by describing the Java version of the Hello World exa
 
 Actors are the unit of execution in Akka. The Actor model as an abstraction that makes it easier to write correct concurrent, parallel and distributed systems. The Hello World example illustrates Akka basics. Within 30 minutes, you should be able to download and run the example and use this guide to understand how the example is constructed. This will get your feet wet, and hopefully inspire you to dive deeper into the wonderful sea of Akka!
 
+After trying this example the comprehensive [Getting Started Guide](http://doc.akka.io/docs/akka/2.5/java/guide/introduction.html) is a good next step to continue learning more about Akka.
+
 ## Downloading the example 
 
 The Hello World example for Java is a zipped project that includes a build files for Maven and Gradle. You can run it on Linux, MacOS, or Windows. The only prerequisite is Java 8 and an installation of [Maven](https://maven.apache.org) or [Gradle](https://gradle.org).
