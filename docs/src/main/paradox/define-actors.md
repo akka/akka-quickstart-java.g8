@@ -29,7 +29,7 @@ The following snippet from the `Greeter.java` implements the `Greeter` Actor:
 Let's break down the functionality:
 
 * The `Greeter` class extends the `akka.actor.AbstractActor` class and implements the `createReceive` method. 
-* The `Greeter` constructor accepts two parameters: `message: String`, which will be used when building greeting messages and `printerActor: ActorRef`, which is a reference to the Actor handling the outputting of the greeting.
+* The `Greeter` constructor accepts two parameters: `String message`, which will be used when building greeting messages and `ActorRef printerActor`, which is a reference to the Actor handling the outputting of the greeting.
 * The `receiveBuilder` defines the behavior; how the Actor should react to the different messages it receives. An Actor can have state. Accessing or mutating the internal state of an Actor is fully thread safe since it is protected by the Actor model. The `createReceive` method should handle the messages the actor expects. In the case of `Greeter`, it expects two types of messages: `WhoToGreet` and `Greet`. The former will update the `greeting` state of the Actor and the latter will trigger a sending of the `greeting` to the `Printer` Actor.
 * The `greeting` variable contains the Actor's state and is set to `""` by default.
 * The static `props` method creates and returns a `Props` instance. `Props` is a configuration class to specify options for the creation of actors, think of it as an immutable and thus freely shareable recipe for creating an actor that can include associated deployment information. This example simply passes the parameters that the Actor requires when being constructed. We will see the `props` method in action later in this tutorial.
