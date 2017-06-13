@@ -15,7 +15,7 @@ Download and unzip the example:
 
 1. Download the zip file from [Lightbend Tech Hub](http://dev.lightbend.com/start/?group=akka&project=akka-quickstart-java) by clicking `CREATE A PROJECT FOR ME`. 
 1. Extract the zip file to a convenient location: 
-  - On Linux and OSX systems, open a terminal and use the command `unzip akka-java-seed.zip`.
+  - On Linux and OSX systems, open a terminal and use the command `unzip akka-quickstart-java.zip`.
   - On Windows, use a tool such as File Explorer to extract the project. 
 
 ## Running the example
