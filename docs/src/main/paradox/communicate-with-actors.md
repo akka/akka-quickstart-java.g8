@@ -6,7 +6,7 @@ You might be wondering what the Actor is doing when it is not processing message
 
 ### Sending messages to an Actor
 
-To put a message into an Actor's mailbox, use the `!` (bang) method on the `ActorRef`. For example, the main class of Hello World sends messages to the `Greeter` Actor like this:
+To put a message into an Actor's mailbox, use the `tell` method on the `ActorRef`. For example, the main class of Hello World sends messages to the `Greeter` Actor like this:
  
 @@snip [AkkaQuickstart.java]($g8src$/java/com/lightbend/akka/sample/AkkaQuickstart.java) { #main-send-messages }
  
