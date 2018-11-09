@@ -6,16 +6,20 @@
     <artifactId>app</artifactId>
     <version>1.0</version>
 
+    <properties>
+      <akka.version>$akka_version$</akka.version>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>com.typesafe.akka</groupId>
             <artifactId>akka-actor_2.12</artifactId>
-            <version>2.5.18</version>
+            <version>\${akka.version}</version>
         </dependency>
         <dependency>
             <groupId>com.typesafe.akka</groupId>
             <artifactId>akka-testkit_2.12</artifactId>
-            <version>2.5.18</version>
+            <version>\${akka.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
