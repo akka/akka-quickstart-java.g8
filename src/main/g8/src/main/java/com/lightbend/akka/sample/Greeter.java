@@ -1,54 +1,78 @@
 package com.lightbend.akka.sample;
 
-import akka.actor.AbstractActor;
-import akka.actor.ActorRef;
-import akka.actor.Props;
-import com.lightbend.akka.sample.Printer.Greeting;
+import akka.actor.typed.ActorRef;
+import akka.actor.typed.Behavior;
+import akka.actor.typed.javadsl.*;
 
-//#greeter-messages
-public class Greeter extends AbstractActor {
-//#greeter-messages
-  static public Props props(String message, ActorRef printerActor) {
-    return Props.create(Greeter.class, () -> new Greeter(message, printerActor));
-  }
+import java.util.Objects;
 
-  //#greeter-messages
-  static public class WhoToGreet {
-    public final String who;
+// #greeter
+public class Greeter extends AbstractBehavior<Greeter.Greet> {
 
-    public WhoToGreet(String who) {
-        this.who = who;
+  public static final class Greet {
+    public final String whom;
+    public final ActorRef<Greeted> replyTo;
+
+    public Greet(String whom, ActorRef<Greeted> replyTo) {
+      this.whom = whom;
+      this.replyTo = replyTo;
     }
   }
 
-  static public class Greet {
-    public Greet() {
+  public static final class Greeted {
+    public final String whom;
+    public final ActorRef<Greet> from;
+
+    public Greeted(String whom, ActorRef<Greet> from) {
+      this.whom = whom;
+      this.from = from;
     }
+
+// #greeter
+    @Override
+    public boolean equals(Object o) {
+      if (this == o) return true;
+      if (o == null || getClass() != o.getClass()) return false;
+      Greeted greeted = (Greeted) o;
+      return Objects.equals(whom, greeted.whom) &&
+              Objects.equals(from, greeted.from);
+    }
+
+    @Override
+    public int hashCode() {
+      return Objects.hash(whom, from);
+    }
+
+    @Override
+    public String toString() {
+      return "Greeted{" +
+              "whom='" + whom + '\'' +
+              ", from=" + from +
+              '}';
+    }
+// #greeter
   }
-  //#greeter-messages
 
-  private final String message;
-  private final ActorRef printerActor;
-  private String greeting = "";
+  public static Behavior<Greet> create() {
+    return Behaviors.setup(Greeter::new);
+  }
 
-  public Greeter(String message, ActorRef printerActor) {
-    this.message = message;
-    this.printerActor = printerActor;
+  private Greeter(ActorContext<Greet> context) {
+    super(context);
   }
 
   @Override
-  public Receive createReceive() {
-    return receiveBuilder()
-        .match(WhoToGreet.class, wtg -> {
-          this.greeting = message + ", " + wtg.who;
-        })
-        .match(Greet.class, x -> {
-          //#greeter-send-message
-          printerActor.tell(new Greeting(greeting), getSelf());
-          //#greeter-send-message
-        })
-        .build();
+  public Receive<Greet> createReceive() {
+    return newReceiveBuilder().onMessage(Greet.class, this::onGreet).build();
   }
-//#greeter-messages
+
+  private Behavior<Greet> onGreet(Greet command) {
+    getContext().getLog().info("Hello {}!", command.whom);
+    //#greeter-send-message
+    command.replyTo.tell(new Greeted(command.whom, getContext().getSelf()));
+    //#greeter-send-message
+    return this;
+  }
 }
-//#greeter-messages
+// #greeter
+

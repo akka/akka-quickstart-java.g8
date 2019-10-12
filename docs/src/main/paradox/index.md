@@ -5,7 +5,7 @@ This guide introduces Akka by describing the Java version of the Hello World exa
 
 Actors are the unit of execution in Akka. The Actor model is an abstraction that makes it easier to write correct concurrent, parallel and distributed systems. The Hello World example illustrates Akka basics. Within 30 minutes, you should be able to download and run the example and use this guide to understand how the example is constructed. This will get your feet wet, and hopefully inspire you to dive deeper into the wonderful sea of Akka!
 
-After trying this example the comprehensive [Getting Started Guide](http://doc.akka.io/docs/akka/2.5/java/guide/introduction.html) is a good next step to continue learning more about Akka.
+After trying this example the comprehensive [Getting Started Guide](http://doc.akka.io/docs/akka/2.6/java/guide/introduction.html) is a good next step to continue learning more about Akka.
 
 ## Downloading the example 
 
@@ -23,14 +23,12 @@ Download and unzip the example:
 Make sure that you have installed the build tool of your choice and thereafter open a Terminal window and, from inside the project directory, type the following to run Hello World:
 
 Maven
-:   
-```
+:  ```
 $ mvn compile exec:exec
 ```
 
 Gradle
-:   
-```
+:  ```
 $ gradle run
 ```
 
@@ -38,32 +36,58 @@ The output should look _something_ like this (scroll all the way to the right to
  
 Maven
 : ```
-[INFO] Scanning for projects...
+Scanning for projects...
 [INFO]
-[INFO] ------------------------------------------------------------------------
+[INFO] ------------------------< hello-akka-java:app >-------------------------
 [INFO] Building app 1.0
-[INFO] ------------------------------------------------------------------------
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ app ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
 [INFO]
 [INFO] --- exec-maven-plugin:1.6.0:exec (default-cli) @ app ---
+[2019-10-12 09:20:30,248] [INFO] [akka.event.slf4j.Slf4jLogger] [helloakka-akka.actor.default-dispatcher-3] [] -
+Slf4jLogger started
+SLF4J: A number (1) of logging calls during the initialization phase have been intercepted and are
+SLF4J: now being replayed. These are subject to the filtering rules of the underlying logging system.
+SLF4J: See also http://www.slf4j.org/codes.html#replay
 >>> Press ENTER to exit <<<
-[INFO] [05/11/2017 14:07:20.790] [helloakka-akka.actor.default-dispatcher-2] [akka://helloakka/user/printerActor] Hello, Java
-[INFO] [05/11/2017 14:07:20.791] [helloakka-akka.actor.default-dispatcher-2] [akka://helloakka/user/printerActor] Good day, Play
-[INFO] [05/11/2017 14:07:20.791] [helloakka-akka.actor.default-dispatcher-2] [akka://helloakka/user/printerActor] Howdy, Akka
-[INFO] [05/11/2017 14:07:20.791] [helloakka-akka.actor.default-dispatcher-2] [akka://helloakka/user/printerActor] Howdy, Lightbend
+[2019-10-12 09:20:30,288] [INFO] [com.lightbend.akka.sample.Greeter] [helloakka-akka.actor.default-dispatcher-6]
+[akka://helloakka/user/greeter] - Hello Charles!
+[2019-10-12 09:20:30,290] [INFO] [com.lightbend.akka.sample.HelloWorldBot] [helloakka-akka.actor.default-dispatcher-3]
+[akka://helloakka/user/Charles] - Greeting 1 for Charles
+[2019-10-12 09:20:30,291] [INFO] [com.lightbend.akka.sample.Greeter] [helloakka-akka.actor.default-dispatcher-6]
+[akka://helloakka/user/greeter] - Hello Charles!
+[2019-10-12 09:20:30,291] [INFO] [com.lightbend.akka.sample.HelloWorldBot] [helloakka-akka.actor.default-dispatcher-3]
+[akka://helloakka/user/Charles] - Greeting 2 for Charles
+[2019-10-12 09:20:30,291] [INFO] [com.lightbend.akka.sample.Greeter] [helloakka-akka.actor.default-dispatcher-6]
+[akka://helloakka/user/greeter] - Hello Charles!
+[2019-10-12 09:20:30,291] [INFO] [com.lightbend.akka.sample.HelloWorldBot] [helloakka-akka.actor.default-dispatcher-3]
+[akka://helloakka/user/Charles] - Greeting 3 for Charles
 ```
 
 Gradle
 : ```
-:compileJava UP-TO-DATE
-:processResources NO-SOURCE
-:classes UP-TO-DATE
-:run
+:run 
+[2019-10-12 09:47:16,399] [INFO] [akka.event.slf4j.Slf4jLogger] [helloakka-akka.actor.default-dispatcher-3] [] -
+Slf4jLogger started
+SLF4J: A number (1) of logging calls during the initialization phase have been intercepted and are
+SLF4J: now being replayed. These are subject to the filtering rules of the underlying logging system.
+SLF4J: See also http://www.slf4j.org/codes.html#replay
 >>> Press ENTER to exit <<<
-[INFO] [05/11/2017 14:08:22.884] [helloakka-akka.actor.default-dispatcher-2] [akka://helloakka/user/printerActor] Howdy, Akka
-[INFO] [05/11/2017 14:08:22.884] [helloakka-akka.actor.default-dispatcher-2] [akka://helloakka/user/printerActor] Good day, Play
-[INFO] [05/11/2017 14:08:22.884] [helloakka-akka.actor.default-dispatcher-2] [akka://helloakka/user/printerActor] Hello, Java
-[INFO] [05/11/2017 14:08:22.884] [helloakka-akka.actor.default-dispatcher-2] [akka://helloakka/user/printerActor] Howdy, Lightbend
-<=========----> 75% EXECUTING
+[2019-10-12 09:47:16,437] [INFO] [com.lightbend.akka.sample.Greeter] [helloakka-akka.actor.default-dispatcher-6]
+[akka://helloakka/user/greeter] - Hello Charles!
+[2019-10-12 09:47:16,439] [INFO] [com.lightbend.akka.sample.HelloWorldBot] [helloakka-akka.actor.default-dispatcher-3]
+[akka://helloakka/user/Charles] - Greeting 1 for Charles
+[2019-10-12 09:47:16,440] [INFO] [com.lightbend.akka.sample.Greeter] [helloakka-akka.actor.default-dispatcher-6]
+[akka://helloakka/user/greeter] - Hello Charles!
+[2019-10-12 09:47:16,440] [INFO] [com.lightbend.akka.sample.HelloWorldBot] [helloakka-akka.actor.default-dispatcher-3]
+[akka://helloakka/user/Charles] - Greeting 2 for Charles
+[2019-10-12 09:47:16,440] [INFO] [com.lightbend.akka.sample.Greeter] [helloakka-akka.actor.default-dispatcher-6]
+[akka://helloakka/user/greeter] - Hello Charles!
+[2019-10-12 09:47:16,440] [INFO] [com.lightbend.akka.sample.HelloWorldBot] [helloakka-akka.actor.default-dispatcher-3]
+[akka://helloakka/user/Charles] - Greeting 3 for Charles
+<=========----> 75% EXECUTING [27s]
 > :run
 ```
    
@@ -71,17 +95,11 @@ Congratulations, you just ran your first Akka app. Now take a look at what happe
 
 ## What Hello World does
 
-As you saw in the console output, the example outputs several greetings. Let’s take a look what happens at runtime.
+The example consists of three actors:
 
-![Architecture](images/hello-akka-architecture.png)
-
-First, the `main` class creates an `akka.actor.ActorSystem`, a container in which Actors run. Next, it creates three instances of a Greeter Actor and one instance of a Printer Actor. 
-
-The example then sends messages to the Greeter Actor instances, which store them internally. Finally, instruction messages to the Greeter Actors trigger them to send messages to the Printer Actor, which outputs them to the console:
-
-![Messages](images/hello-akka-messages.png)
-
-Akka's use of Actors and asynchronous messaging result in a range of benefits. Consider a few.
+* Greet: Receives commands to `Greet` someone and responds with a `Greeted` to confirm the greeting has taken place
+* GreeterBot: receives the reply from the Greeter and sends a number of additional greeting messages and collect the replies until a given max number of messages have been reached.
+* GreeterMain: The guardian actor that bootstraps everything
 
 ## Benefits of using the Actor Model
 

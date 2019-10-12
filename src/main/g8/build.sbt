@@ -7,6 +7,7 @@ scalaVersion := "$scala_version$"
 lazy val akkaVersion = "$akka_version$"
 
 libraryDependencies ++= Seq(
-  "com.typesafe.akka" %% "akka-actor" % akkaVersion,
-  "com.typesafe.akka" %% "akka-testkit" % akkaVersion,
+  "com.typesafe.akka" %% "akka-actor-typed" % akkaVersion,
+  "com.typesafe.akka" %% "akka-actor-testkit-typed" % akkaVersion,
+  "ch.qos.logback" % "logback-classic" % "1.2.3",
   "junit" % "junit" % "4.12")
