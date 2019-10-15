@@ -16,11 +16,11 @@ When defining Actors and their messages, keep these recommendations in mind:
 
 * _Messages should be immutable_, since they are shared between different threads.
 
-* It is a good practice to put an actor's associated messages in its object. This makes it easier to understand what type of messages the actor expects and handles. 
+* It is a good practice to put an actor's associated messages as static classes in the AbstractBehaavior's class. This makes it easier to understand what type of messages the actor expects and handles. 
 
-* It is a good practice obtain an actor's initial behavior in the object's apply method
+* It is a good practice obtain an actor's initial behavior via a static factory method
 
-Lets see how the objects and Behavior implementations for `Greeter`, `GreeterBot` and `GreeterMain` demonstrate these best practices. 
+Lets see how the implementations for `Greeter`, `GreeterBot` and `GreeterMain` demonstrate these best practices. 
 
 ### The Greeter actor
 
@@ -35,11 +35,11 @@ greet, it also holds an `ActorRef` that the sender of the message
 supplies so that the `HelloWorld` Actor can send back the confirmation
 message.
 
-The behavior of the Actor is defined as the `Greeter` with the help
+The behavior of the Actor is defined as the `Greeter` AbstractBehavior with the help
 of the `receive` behavior factory. Processing the next message then results
-in a new behavior that can potentially be different from this one. State is
-updated by returning a new behavior that holds the new immutable state. In this
-case we don't need to update any state, so we return @scala[`same`]@java[`this`], which means
+in a new behavior that can potentially be different from this one. The state can be updated
+by modifying the current instance as it is mutable. In this
+case we don't need to update any state, so we return `this` without any field updates, which means
 the next behavior is "the same as the current one".
 
 The type of the messages handled by this behavior is declared to be of class

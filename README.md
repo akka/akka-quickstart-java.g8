@@ -12,11 +12,11 @@ It can also be used as a [Giter8][g8] template for Akka with Java.
 
 Prerequisites:
 - JDK 8
-- [sbt][sbt] 0.13.13 or higher ([download here][sbt_download])
+- [sbt][sbt] 1.2.8 or higher ([download here][sbt_download])
 
 Open a console and run the following command to apply this template:
  ```
-sbt -Dsbt.version=1.2.8 new akka/akka-quickstart-java.g8
+sbt new akka/akka-quickstart-java.g8
  ```
 
 This template will prompt for the name of the project. Press `Enter` if the default values suit you.
