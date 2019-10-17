@@ -4,7 +4,8 @@ You can run the Hello World application from the command line or an IDE. The fin
 
 ### The build files
 
-As you can see below the build files for Maven (`pom.xml`) and Gradle (`build.gradle`) used in this sample project are very simple. Please refer to the documentation of the build tool of your choice for more information.
+As you can see below the build files for Maven (`pom.xml`) and Gradle (`build.gradle`) used in this sample project are very simple. 
+Please refer to the documentation of the build tool of your choice for more information.
 
 Maven
 :   @@snip [pom.xml]($g8root$/pom.xml)
@@ -33,48 +34,66 @@ The output should look _something_ like this (scroll all the way to the right to
 
 Maven
 : ```
-[INFO] Scanning for projects...
+canning for projects...
 [INFO]
-[INFO] ------------------------------------------------------------------------
+[INFO] ------------------------< hello-akka-java:app >-------------------------
 [INFO] Building app 1.0
-[INFO] ------------------------------------------------------------------------
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ app ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
 [INFO]
 [INFO] --- exec-maven-plugin:1.6.0:exec (default-cli) @ app ---
+[2019-10-12 09:20:30,248] [INFO] [akka.event.slf4j.Slf4jLogger] [helloakka-akka.actor.default-dispatcher-3] [] -
+Slf4jLogger started
+SLF4J: A number (1) of logging calls during the initialization phase have been intercepted and are
+SLF4J: now being replayed. These are subject to the filtering rules of the underlying logging system.
+SLF4J: See also http://www.slf4j.org/codes.html#replay
 >>> Press ENTER to exit <<<
-[INFO] [05/11/2017 14:07:20.790] [helloakka-akka.actor.default-dispatcher-2] [akka://helloakka/user/printerActor] Hello, Java
-[INFO] [05/11/2017 14:07:20.791] [helloakka-akka.actor.default-dispatcher-2] [akka://helloakka/user/printerActor] Good day, Play
-[INFO] [05/11/2017 14:07:20.791] [helloakka-akka.actor.default-dispatcher-2] [akka://helloakka/user/printerActor] Howdy, Akka
-[INFO] [05/11/2017 14:07:20.791] [helloakka-akka.actor.default-dispatcher-2] [akka://helloakka/user/printerActor] Howdy, Lightbend
+[2019-10-12 09:20:30,288] [INFO] [com.lightbend.akka.sample.Greeter] [helloakka-akka.actor.default-dispatcher-6]
+[akka://helloakka/user/greeter] - Hello Charles!
+[2019-10-12 09:20:30,290] [INFO] [com.lightbend.akka.sample.HelloWorldBot] [helloakka-akka.actor.default-dispatcher-3]
+[akka://helloakka/user/Charles] - Greeting 1 for Charles
+[2019-10-12 09:20:30,291] [INFO] [com.lightbend.akka.sample.Greeter] [helloakka-akka.actor.default-dispatcher-6]
+[akka://helloakka/user/greeter] - Hello Charles!
+[2019-10-12 09:20:30,291] [INFO] [com.lightbend.akka.sample.HelloWorldBot] [helloakka-akka.actor.default-dispatcher-3]
+[akka://helloakka/user/Charles] - Greeting 2 for Charles
+[2019-10-12 09:20:30,291] [INFO] [com.lightbend.akka.sample.Greeter] [helloakka-akka.actor.default-dispatcher-6]
+[akka://helloakka/user/greeter] - Hello Charles!
+[2019-10-12 09:20:30,291] [INFO] [com.lightbend.akka.sample.HelloWorldBot] [helloakka-akka.actor.default-dispatcher-3]
+[akka://helloakka/user/Charles] - Greeting 3 for Charles
+
 ```
 
 Gradle
 : ```
-:compileJava UP-TO-DATE
-:processResources NO-SOURCE
-:classes UP-TO-DATE
-:run
+:run 
+[2019-10-12 09:47:16,399] [INFO] [akka.event.slf4j.Slf4jLogger] [helloakka-akka.actor.default-dispatcher-3] [] -
+Slf4jLogger started
+SLF4J: A number (1) of logging calls during the initialization phase have been intercepted and are
+SLF4J: now being replayed. These are subject to the filtering rules of the underlying logging system.
+SLF4J: See also http://www.slf4j.org/codes.html#replay
 >>> Press ENTER to exit <<<
-[INFO] [05/11/2017 14:08:22.884] [helloakka-akka.actor.default-dispatcher-2] [akka://helloakka/user/printerActor] Howdy, Akka
-[INFO] [05/11/2017 14:08:22.884] [helloakka-akka.actor.default-dispatcher-2] [akka://helloakka/user/printerActor] Good day, Play
-[INFO] [05/11/2017 14:08:22.884] [helloakka-akka.actor.default-dispatcher-2] [akka://helloakka/user/printerActor] Hello, Java
-[INFO] [05/11/2017 14:08:22.884] [helloakka-akka.actor.default-dispatcher-2] [akka://helloakka/user/printerActor] Howdy, Lightbend
-<=========----> 75% EXECUTING
+[2019-10-12 09:47:16,437] [INFO] [com.lightbend.akka.sample.Greeter] [helloakka-akka.actor.default-dispatcher-6]
+[akka://helloakka/user/greeter] - Hello Charles!
+[2019-10-12 09:47:16,439] [INFO] [com.lightbend.akka.sample.HelloWorldBot] [helloakka-akka.actor.default-dispatcher-3]
+[akka://helloakka/user/Charles] - Greeting 1 for Charles
+[2019-10-12 09:47:16,440] [INFO] [com.lightbend.akka.sample.Greeter] [helloakka-akka.actor.default-dispatcher-6]
+[akka://helloakka/user/greeter] - Hello Charles!
+[2019-10-12 09:47:16,440] [INFO] [com.lightbend.akka.sample.HelloWorldBot] [helloakka-akka.actor.default-dispatcher-3]
+[akka://helloakka/user/Charles] - Greeting 2 for Charles
+[2019-10-12 09:47:16,440] [INFO] [com.lightbend.akka.sample.Greeter] [helloakka-akka.actor.default-dispatcher-6]
+[akka://helloakka/user/greeter] - Hello Charles!
+[2019-10-12 09:47:16,440] [INFO] [com.lightbend.akka.sample.HelloWorldBot] [helloakka-akka.actor.default-dispatcher-3]
+[akka://helloakka/user/Charles] - Greeting 3 for Charles
+<=========----> 75% EXECUTING [27s]
 > :run
 ```
 
-Remember that we set our `Printer` Actor to use the Logger from Akka? This is why there is a lot of extra information when we log things. The log output contains information like when and from what actor it was logged. Let's focus on the output from the `Printer` Actor for a while:
-
-```
-... Howdy, Akka
-... Hello, Java
-... Good day, Play
-... Howdy, Lightbend
-```
-
-This is the result of our code that sends messages to the `Greeter` Actor:
-
-@@snip [AkkaQuickstart.java]($g8src$/java/com/lightbend/akka/sample/AkkaQuickstart.java) { #main-send-messages }
-
+Remember that the implementation of the `Greeter` Actor used the logger from the `ActorContext`? 
+This provides a lot of extra information. For example, the log output contains includes the time and name of the object the behavior was defined. 
+ 
+ 
 To run the tests, enter the `test` task instead:
 
 Maven
@@ -89,7 +108,7 @@ Gradle
 $ gradle test
 ```
 
-Try running the code a couple of more times and make sure to notice the order of the logging. Did you notice that it can change from one run to another. What's happening here? The asynchronous behavior becomes evident. This might be a new mental model for you. But, once you gain experience with it everything will become clear; just like for <a href="https://en.wikipedia.org/wiki/Neo_(The_Matrix)">Neo in the Matrix</a>.
+
 
 ### Next steps
 

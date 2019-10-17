@@ -1,40 +1,25 @@
 package com.lightbend.akka.sample;
 
-import static org.junit.Assert.assertEquals;
-
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
+import akka.actor.testkit.typed.javadsl.TestKitJunitResource;
+import akka.actor.testkit.typed.javadsl.TestProbe;
+import akka.actor.typed.ActorRef;
+import org.junit.ClassRule;
 import org.junit.Test;
 
-import com.lightbend.akka.sample.Greeter.Greet;
-import com.lightbend.akka.sample.Greeter.WhoToGreet;
-import com.lightbend.akka.sample.Printer.Greeting;
-
-import akka.actor.ActorRef;
-import akka.actor.ActorSystem;
-import akka.testkit.javadsl.TestKit;
-
+//#definition
 public class AkkaQuickstartTest {
-    static ActorSystem system;
 
-    @BeforeClass
-    public static void setup() {
-        system = ActorSystem.create();
-    }
+    @ClassRule
+    public static final TestKitJunitResource testKit = new TestKitJunitResource();
+//#definition
 
-    @AfterClass
-    public static void teardown() {
-        TestKit.shutdownActorSystem(system);
-        system = null;
-    }
-
+    //#test
     @Test
     public void testGreeterActorSendingOfGreeting() {
-        final TestKit testProbe = new TestKit(system);
-        final ActorRef helloGreeter = system.actorOf(Greeter.props("Hello", testProbe.getRef()));
-        helloGreeter.tell(new WhoToGreet("Akka"), ActorRef.noSender());
-        helloGreeter.tell(new Greet(), ActorRef.noSender());
-        Greeting greeting = testProbe.expectMsgClass(Greeting.class);
-        assertEquals("Hello, Akka", greeting.message);
+        TestProbe<Greeter.Greeted> testProbe = testKit.createTestProbe();
+        ActorRef<Greeter.Greet> underTest = testKit.spawn(Greeter.create(), "greeter");
+        underTest.tell(new Greeter.Greet("Charles", testProbe.getRef()));
+        testProbe.expectMessage(new Greeter.Greeted("Charles", underTest));
     }
+    //#test
 }
