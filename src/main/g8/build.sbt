@@ -2,7 +2,7 @@ name := "akka-quickstart-java"
 
 version := "1.0"
 
-scalaVersion := "$scala_version$"
+scalaVersion := "2.13.1"
 
 lazy val akkaVersion = "$akka_version$"
 
