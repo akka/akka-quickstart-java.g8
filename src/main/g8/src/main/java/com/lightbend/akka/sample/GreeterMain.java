@@ -4,23 +4,23 @@ import akka.actor.typed.ActorRef;
 import akka.actor.typed.Behavior;
 import akka.actor.typed.javadsl.*;
 
-public class GreeterMain extends AbstractBehavior<GreeterMain.Start> {
+public class GreeterMain extends AbstractBehavior<GreeterMain.SayHello> {
 
-    public static class Start {
+    public static class SayHello {
         public final String name;
 
-        public Start(String name) {
+        public SayHello(String name) {
             this.name = name;
         }
     }
 
     private final ActorRef<Greeter.Greet> greeter;
 
-    public static Behavior<Start> create() {
+    public static Behavior<SayHello> create() {
         return Behaviors.setup(GreeterMain::new);
     }
 
-    private GreeterMain(ActorContext<Start> context) {
+    private GreeterMain(ActorContext<SayHello> context) {
         super(context);
         //#create-actors
         greeter = context.spawn(Greeter.create(), "greeter");
@@ -28,11 +28,11 @@ public class GreeterMain extends AbstractBehavior<GreeterMain.Start> {
     }
 
     @Override
-    public Receive<Start> createReceive() {
-        return newReceiveBuilder().onMessage(Start.class, this::onStart).build();
+    public Receive<SayHello> createReceive() {
+        return newReceiveBuilder().onMessage(SayHello.class, this::onSayHello).build();
     }
 
-    private Behavior<Start> onStart(Start command) {
+    private Behavior<SayHello> onSayHello(SayHello command) {
         //#create-actors
         ActorRef<Greeter.Greeted> replyTo =
                 getContext().spawn(GreeterBot.create(3), command.name);
