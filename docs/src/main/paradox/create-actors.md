@@ -28,7 +28,7 @@ It uses `Behaviors.setup` to bootstrap the application
 ### Spawning child actors
 
 Other actors are created using `spawn` methods on `ActorContext`. The `GreeterMain` creates a `Greeter` actor
-this way on startup as well as a new `GreeterBot` each time it receives a `Start` message.
+this way on startup as well as a new `GreeterBot` each time it receives a `SayHello` message.
  
  
 @@snip [GreeterMain.java]($g8src$/java/com/lightbend/akka/sample/GreeterMain.java) { #create-actors }
