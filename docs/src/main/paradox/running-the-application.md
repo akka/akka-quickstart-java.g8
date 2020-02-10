@@ -93,6 +93,7 @@ SLF4J: See also http://www.slf4j.org/codes.html#replay
 Remember that the implementation of the `Greeter` Actor used the logger from the `ActorContext`?
 This provides a lot of extra information. For example, the log output contains includes the time and name of the object the behavior was defined.
 
+Note that the application stays running until you press enter or interrupt it in some other way.
 
 To run the tests, enter the `test` task instead:
 
