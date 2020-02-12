@@ -13,10 +13,10 @@ It is in a suspended state in which it does not consume any resources apart from
 To put a message into an Actor's mailbox, use the `tell` method on the `ActorRef`. 
 For example, the main class of Hello World sends messages to the `Greeter` Actor like this:
  
-@@snip [AkkaQuickstart.java]($g8src$/java/com/lightbend/akka/sample/AkkaQuickstart.java) { #main-send-messages }
+@@snip [AkkaQuickstart.java]($g8src$/java/$package$/AkkaQuickstart.java) { #main-send-messages }
  
 The `Greeter` Actor also sends a message to the `Printer` Actor:
  
-@@snip [Greeter.java]($g8src$/java/com/lightbend/akka/sample/Greeter.java) { #greeter-send-message }
+@@snip [Greeter.java]($g8src$/java/$package$/Greeter.java) { #greeter-send-message }
  
 We've looked at how to create actors and send messages. Now, let's review by looking at the `Main` class in its entirety.

@@ -19,11 +19,11 @@ done within the guardian actor.
 
 The guardian this sample actor is `GreeterMain`.
 
-@@snip [GreeterMain.java]($g8src$/java/com/lightbend/akka/sample/AkkaQuickstart.java) { #actor-system }
+@@snip [GreeterMain.java]($g8src$/java/$package$/AkkaQuickstart.java) { #actor-system }
 
 It uses `Behaviors.setup` to bootstrap the application
 
-@@snip [GreeterMain.java]($g8src$/java/com/lightbend/akka/sample/GreeterMain.java)
+@@snip [GreeterMain.java]($g8src$/java/$package$/GreeterMain.java)
 
 ### Spawning child actors
 
@@ -31,4 +31,4 @@ Other actors are created using `spawn` methods on `ActorContext`. The `GreeterMa
 this way on startup as well as a new `GreeterBot` each time it receives a `SayHello` message.
  
  
-@@snip [GreeterMain.java]($g8src$/java/com/lightbend/akka/sample/GreeterMain.java) { #create-actors }
+@@snip [GreeterMain.java]($g8src$/java/$package$/GreeterMain.java) { #create-actors }
