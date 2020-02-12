@@ -15,7 +15,7 @@ dependencies {
   testCompile 'junit:junit:4.12'
 }
 
-mainClassName = "com.lightbend.akka.sample.AkkaQuickstart"
+mainClassName = "$package$.AkkaQuickstart"
 
 run {
   standardInput = System.in
