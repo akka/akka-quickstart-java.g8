@@ -26,7 +26,7 @@ Lets see how the implementations for `Greeter`, `GreeterBot` and `GreeterMain` d
 
 The following snippet from the `Greeter.java` implements the `Greeter` Actor:
 
-@@snip [Greeter.java]($g8src$/java/com/lightbend/akka/sample/Greeter.java) { #greeter }
+@@snip [Greeter.java]($g8src$/java/$package$/Greeter.java) { #greeter }
 
 This small piece of code defines two message types, one for commanding the
 Actor to greet someone and one that the Actor will use to confirm that it has
@@ -63,7 +63,7 @@ wrapped scope—the `Greeter` class.
 
 ### The Greeter bot actor
 
-@@snip [GreeterBot.java]($g8src$/java/com/lightbend/akka/sample/GreeterBot.java)
+@@snip [GreeterBot.java]($g8src$/java/$package$/GreeterBot.java)
 
 Note how this Actor manages the counter with an instance variable.
 No concurrency guards such as `synchronized` or `AtomicInteger` are needed since an actor instance processes one
@@ -74,4 +74,4 @@ message at a time.
 A third actor spawns the `Greeter` and the `GreeterBot` and starts the interaction, creating actors
 and what `spawn` does is discussed next.
 
-@@snip [GreeterMain.java]($g8src$/java/com/lightbend/akka/sample/GreeterMain.java)
+@@snip [GreeterMain.java]($g8src$/java/$package$/GreeterMain.java)

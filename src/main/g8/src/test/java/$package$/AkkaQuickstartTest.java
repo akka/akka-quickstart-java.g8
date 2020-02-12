@@ -1,4 +1,4 @@
-package com.lightbend.akka.sample;
+package $package$;
 
 import akka.actor.testkit.typed.javadsl.TestKitJunitResource;
 import akka.actor.testkit.typed.javadsl.TestProbe;
