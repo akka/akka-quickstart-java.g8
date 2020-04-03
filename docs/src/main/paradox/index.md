@@ -54,15 +54,15 @@ SLF4J: See also http://www.slf4j.org/codes.html#replay
 >>> Press ENTER to exit <<<
 [2019-10-12 09:20:30,288] [INFO] [com.lightbend.akka.sample.Greeter] [helloakka-akka.actor.default-dispatcher-6]
 [akka://helloakka/user/greeter] - Hello Charles!
-[2019-10-12 09:20:30,290] [INFO] [com.lightbend.akka.sample.HelloWorldBot] [helloakka-akka.actor.default-dispatcher-3]
+[2019-10-12 09:20:30,290] [INFO] [com.lightbend.akka.sample.GreeterBot] [helloakka-akka.actor.default-dispatcher-3]
 [akka://helloakka/user/Charles] - Greeting 1 for Charles
 [2019-10-12 09:20:30,291] [INFO] [com.lightbend.akka.sample.Greeter] [helloakka-akka.actor.default-dispatcher-6]
 [akka://helloakka/user/greeter] - Hello Charles!
-[2019-10-12 09:20:30,291] [INFO] [com.lightbend.akka.sample.HelloWorldBot] [helloakka-akka.actor.default-dispatcher-3]
+[2019-10-12 09:20:30,291] [INFO] [com.lightbend.akka.sample.GreeterBot] [helloakka-akka.actor.default-dispatcher-3]
 [akka://helloakka/user/Charles] - Greeting 2 for Charles
 [2019-10-12 09:20:30,291] [INFO] [com.lightbend.akka.sample.Greeter] [helloakka-akka.actor.default-dispatcher-6]
 [akka://helloakka/user/greeter] - Hello Charles!
-[2019-10-12 09:20:30,291] [INFO] [com.lightbend.akka.sample.HelloWorldBot] [helloakka-akka.actor.default-dispatcher-3]
+[2019-10-12 09:20:30,291] [INFO] [com.lightbend.akka.sample.GreeterBot] [helloakka-akka.actor.default-dispatcher-3]
 [akka://helloakka/user/Charles] - Greeting 3 for Charles
 ```
 
@@ -77,15 +77,15 @@ SLF4J: See also http://www.slf4j.org/codes.html#replay
 >>> Press ENTER to exit <<<
 [2019-10-12 09:47:16,437] [INFO] [com.lightbend.akka.sample.Greeter] [helloakka-akka.actor.default-dispatcher-6]
 [akka://helloakka/user/greeter] - Hello Charles!
-[2019-10-12 09:47:16,439] [INFO] [com.lightbend.akka.sample.HelloWorldBot] [helloakka-akka.actor.default-dispatcher-3]
+[2019-10-12 09:47:16,439] [INFO] [com.lightbend.akka.sample.GreeterBot] [helloakka-akka.actor.default-dispatcher-3]
 [akka://helloakka/user/Charles] - Greeting 1 for Charles
 [2019-10-12 09:47:16,440] [INFO] [com.lightbend.akka.sample.Greeter] [helloakka-akka.actor.default-dispatcher-6]
 [akka://helloakka/user/greeter] - Hello Charles!
-[2019-10-12 09:47:16,440] [INFO] [com.lightbend.akka.sample.HelloWorldBot] [helloakka-akka.actor.default-dispatcher-3]
+[2019-10-12 09:47:16,440] [INFO] [com.lightbend.akka.sample.GreeterBot] [helloakka-akka.actor.default-dispatcher-3]
 [akka://helloakka/user/Charles] - Greeting 2 for Charles
 [2019-10-12 09:47:16,440] [INFO] [com.lightbend.akka.sample.Greeter] [helloakka-akka.actor.default-dispatcher-6]
 [akka://helloakka/user/greeter] - Hello Charles!
-[2019-10-12 09:47:16,440] [INFO] [com.lightbend.akka.sample.HelloWorldBot] [helloakka-akka.actor.default-dispatcher-3]
+[2019-10-12 09:47:16,440] [INFO] [com.lightbend.akka.sample.GreeterBot] [helloakka-akka.actor.default-dispatcher-3]
 [akka://helloakka/user/Charles] - Greeting 3 for Charles
 <=========----> 75% EXECUTING [27s]
 > :run
