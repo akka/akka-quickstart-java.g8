@@ -13,6 +13,7 @@ Maven
 Gradle
 :   @@snip [pom.xml]($g8root$/build.gradle)
 
+Note how some dependencies have a suffix `_2.13` in the artifact name. This suffix is the scala version this artifact was compiled for. All artifacts must be compiled for the same scala version so you can't depend on `akka-actors_2.13` and `akka-testkit_2.12` in a single project since they require different scala version.
 
 ### Running the project
 
