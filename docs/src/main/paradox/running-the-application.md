@@ -34,7 +34,8 @@ $ gradle run
 The output should look _something_ like this (scroll all the way to the right to see the Actor output):
 
 Maven
-: ```
+: 
+```
 canning for projects...
 [INFO]
 [INFO] ------------------------< hello-akka-java:app >-------------------------
@@ -67,7 +68,8 @@ SLF4J: See also http://www.slf4j.org/codes.html#replay
 ```
 
 Gradle
-: ```
+: 
+```
 :run
 [2019-10-12 09:47:16,399] [INFO] [akka.event.slf4j.Slf4jLogger] [helloakka-akka.actor.default-dispatcher-3] [] -
 Slf4jLogger started
