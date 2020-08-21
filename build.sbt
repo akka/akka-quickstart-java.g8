@@ -16,6 +16,4 @@ lazy val root = (project in file("."))
 //    open docs/target/paradox/site/main/index.html
 lazy val docs = (project in file("docs"))
   .enablePlugins(ParadoxPlugin)
-  .settings(
-    resolvers += Resolver.url("typesafe", url("https://repo.typesafe.com/typesafe/ivy-releases/"))(Resolver.ivyStylePatterns)
-  )
+  .disablePlugins(Giter8Plugin)
