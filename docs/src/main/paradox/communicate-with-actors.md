@@ -15,7 +15,7 @@ For example, the main class of Hello World sends messages to the `Greeter` Actor
  
 @@snip [AkkaQuickstart.java]($g8src$/java/$package$/AkkaQuickstart.java) { #main-send-messages }
  
-The `Greeter` Actor also sends a message to the `Printer` Actor:
+The `Greeter` Actor also sends a message to acknowledge it has received the greeting:
  
 @@snip [Greeter.java]($g8src$/java/$package$/Greeter.java) { #greeter-send-message }
  
