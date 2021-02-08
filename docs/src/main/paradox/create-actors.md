@@ -13,22 +13,20 @@ If needed, the runtime can optimize the system by changing an Actor's location o
  
 ### The Akka ActorSystem
 
-An `ActorSystem` is the intial entry point into Akka, usually only one is created per application.
-An `ActorSystem` has a name and a guardian actor. The bootstrap of your application is typically 
-done within the guardian actor.
+An `ActorSystem` is the intial entry point into Akka. Usually only one `ActorSystem` is created per application. An `ActorSystem` has a name and a guardian actor. The bootstrap of your application is typically done within the guardian actor.
 
-The guardian this sample actor is `GreeterMain`.
+The guardian actor of this `ActorSystem` is `GreeterMain`.
 
 @@snip [GreeterMain.java]($g8src$/java/$package$/AkkaQuickstart.java) { #actor-system }
 
-It uses `Behaviors.setup` to bootstrap the application
+It uses `Behaviors.setup` to bootstrap the application.
 
 @@snip [GreeterMain.java]($g8src$/java/$package$/GreeterMain.java)
 
 ### Spawning child actors
 
 Other actors are created using `spawn` methods on `ActorContext`. The `GreeterMain` creates a `Greeter` actor
-this way on startup as well as a new `GreeterBot` each time it receives a `SayHello` message.
+this way on startup, as well as a new `GreeterBot` each time it receives a `SayHello` message.
  
  
 @@snip [GreeterMain.java]($g8src$/java/$package$/GreeterMain.java) { #create-actors }
