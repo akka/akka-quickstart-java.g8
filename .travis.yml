@@ -1,17 +1,25 @@
 language: scala
 
+addons:
+  apt:
+    sources:
+      # Official debian package for AdoptOpenJDK from https://adoptopenjdk.net/installation.html#linux-pkg
+      - sourceline: deb https://adoptopenjdk.jfrog.io/adoptopenjdk/deb/ xenial main
+        key_url: https://adoptopenjdk.jfrog.io/adoptopenjdk/api/gpg/key/public
+    packages:
+      - adoptopenjdk-11-hotspot
+
 before_install:
-  # using jabba for custom jdk management
-  - curl -sL https://raw.githubusercontent.com/shyiko/jabba/0.11.2/install.sh | bash && . ~/.jabba/jabba.sh
-  - jabba install $TRAVIS_JDK
-install: jabba use "$TRAVIS_JDK" && java -Xmx32m -version
+  - whereis java
+  - export JAVA_HOME=/usr/lib/jvm/adoptopenjdk-11-hotspot-amd64
+  - export PATH=/usr/lib/jvm/adoptopenjdk-11-hotspot-amd64/bin:$PATH
+  - java -version
 
 # These directories are cached to S3 at the end of the build
 cache:
   directories:
     - $HOME/.ivy2/cache
     - $HOME/.sbt
-    - $HOME/.jabba/jdk
 
 script:
   ## This runs the template with the default parameters, and runs test within the templated app.
