@@ -15,7 +15,7 @@ The Hello World example for Java is a zipped project that includes a build files
 
 Download and unzip the example:
 
-1. Download the zip file from [Lightbend Tech Hub](https://developer.lightbend.com/start/?group=akka&project=akka-quickstart-java) by clicking `CREATE A PROJECT FOR ME`. 
+1. Download the [zip file](https://example.lightbend.com/v1/download/akka-quickstart-java?name=akka-quickstart-java). 
 1. Extract the zip file to a convenient location: 
   - On Linux and OSX systems, open a terminal and use the command `unzip akka-quickstart-java.zip`.
   - On Windows, use a tool such as File Explorer to extract the project. 
