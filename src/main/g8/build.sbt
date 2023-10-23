@@ -2,9 +2,11 @@ name := "akka-quickstart-java"
 
 version := "1.0"
 
-scalaVersion := "2.13.1"
+scalaVersion := "2.13.12"
 
 lazy val akkaVersion = "$akka_version$"
+
+resolvers += "Akka library repository".at("https://repo.akka.io/maven")
 
 // Run in a separate JVM, to make sure sbt waits until all threads have
 // finished before returning.
